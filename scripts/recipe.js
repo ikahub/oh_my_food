@@ -142,26 +142,32 @@ class Recipe {
 
     const isMatchingName = this.name.toLowerCase().includes(filterSearch.toLowerCase())
     
-    //const isMatchingDescription = this.description.toLowerCase().includes(filterSearch.toLowerCase())
-    const isMatchingServings = this.servings?.toString()?.includes(filterSearch)
-    const isMatchingTime = this.time?.toString()?.includes(filterSearch)
+    const isMatchingDescription = this.description.toLowerCase().includes(filterSearch.toLowerCase())
+    const isMatchingServings = this.servings?.toString()?.includes(filterSearch) //TOSTRING ERROR CONSOLE
+    const isMatchingTime = this.time?.toString()?.includes(filterSearch) //TOSTRING ERROR CONSOLE
     const isMatchingAppliance = this.appliance.toLowerCase().includes(filterSearch.toLowerCase())
+    
+    let isMatchingIngredients = true
+    
+        for (let j = 0; j < this.ingredients.length; j++) {
+          const ingredient = this.ingredients[j];
+          isMatchingIngredients = ingredient.ingredient.toLowerCase().includes(filterSearch.toLowerCase()) //TOLOWERCASE ERROR CONSOLE X2
+        }
+    
+    let isMatchingUstensils = true
 
-    //let isMatchingIngredients = true
-    let isMatchingIngredients = this.ingredients.filter(ing => ing.ingredient.toLowerCase().includes(filterSearch.toLowerCase())).length > 0
-    
-    //let isMatchingUstensils = true
-    //isMatchingUstensils = this.ustensils.filter(ustensil => ustensil === filterSearch).length > 0
-    
-    let isMatchingUstensils = this.ustensils.filter(ust => ust.toLowerCase().includes(filterSearch.toLowerCase())).length > 0
-    
+        for (let j = 0; j < this.ustensils.length; j++) {
+          const ustensil = this.ustensils[j];
+          isMatchingUstensils = ustensil.toLowerCase().includes(filterSearch.toLowerCase()) //TOLOWERCASE ERROR CONSOLE X2
+        }
+        
     return isMatchingName || 
-           //isMatchingDescription ||
-           //isMatchingServings ||
-           //isMatchingTime ||
-           //isMatchingAppliance ||
-           isMatchingIngredients //||
-           //isMatchingUstensils
+           isMatchingDescription ||
+           isMatchingServings ||
+           isMatchingTime ||
+           isMatchingAppliance ||
+           isMatchingIngredients ||
+           isMatchingUstensils
   }
 
 
