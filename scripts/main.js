@@ -1,5 +1,5 @@
 import recipes from '../data/recipes.js'
-import Recipe from './recipebis.js'
+import Recipe from './recipe.js'
 
 class Main {
 
