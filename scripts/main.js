@@ -55,8 +55,6 @@ class Main {
       return acc
     }, {ingredients:[],appliance:[],ustensils:[]})
 
-    //this.recipesEl.ingredients = this.recipesEl.ingredients.filter(ing => !this.selectedIngredient.includes(ing))
-
     Object.keys(this.recipesEl).forEach(filter => this.displayFilterTags(filter))
 
     Object.keys(this.recipesEl).forEach(filter => {
