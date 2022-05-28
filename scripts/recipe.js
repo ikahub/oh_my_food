@@ -119,7 +119,7 @@ class Recipe {
   checkMatchingSearch(filterSearch){
 
     const isMatchingName = this.name.toLowerCase().includes(filterSearch.toLowerCase())
-    
+    const isMatchingDescription = this.description.toLowerCase().includes(filterSearch.toLowerCase())
     const isMatchingServings = this.servings?.toString()?.includes(filterSearch)
     const isMatchingTime = this.time?.toString()?.includes(filterSearch)
     const isMatchingAppliance = this.appliance.toLowerCase().includes(filterSearch.toLowerCase())
